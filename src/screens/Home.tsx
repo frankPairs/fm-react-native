@@ -1,23 +1,24 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { View } from 'react-native';
 
-import { ROUTES } from '../constants';
+import { ColorSampleList } from '../components';
+import {
+  SOLARIZED_COLORS,
+  FRONTEND_MASTERS_COLORS,
+  RAINBOW_COLORS,
+} from '../constants';
 
-type Props = {
-  navigation: StackNavigationProp<any, 'Home'>;
-};
-
-function Home({ navigation }: Props) {
+function Home() {
   return (
     <View>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate(ROUTES.colorPalette);
-        }}
-      >
-        <Text>Color Pallete App</Text>
-      </TouchableOpacity>
+      <ColorSampleList title="Solarized" colors={SOLARIZED_COLORS} />
+
+      <ColorSampleList
+        title="Frontend Masters"
+        colors={FRONTEND_MASTERS_COLORS}
+      />
+
+      <ColorSampleList title="Rainbow Colors" colors={RAINBOW_COLORS} />
     </View>
   );
 }

@@ -13,7 +13,11 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name={ROUTES.home} component={Home} />
-        <Stack.Screen name={ROUTES.colorPalette} component={ColorPalette} />
+        <Stack.Screen
+          name={ROUTES.colorPalette}
+          component={ColorPalette}
+          options={({ route }) => ({ title: route.params.paletteName })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

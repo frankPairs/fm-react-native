@@ -3,4 +3,8 @@ type Color = {
   hexCode: string;
 };
 
-export { Color };
+type RootStackParamList = {
+  ColorPalette: { paletteName: string; colors: Color[] };
+};
+
+export { Color, RootStackParamList };

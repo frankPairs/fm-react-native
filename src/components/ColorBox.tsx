@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 35,
     marginBottom: 10,
+    height: 35,
   },
 });
 

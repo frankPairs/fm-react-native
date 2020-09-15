@@ -1,13 +1,18 @@
 import React from 'react';
 import { View } from 'react-native';
+import { StackScreenProps } from '@react-navigation/stack';
 
 import { ColorList } from '../components';
-import { COLORS } from '../constants';
+import { RootStackParamList } from '../types';
 
-function ColorPalette() {
+type Props = StackScreenProps<RootStackParamList, 'ColorPalette'>;
+
+function ColorPalette({ route }: Props) {
+  const { colors } = route.params;
+
   return (
     <View>
-      <ColorList data={COLORS} />
+      <ColorList data={colors} />
     </View>
   );
 }
