@@ -1,27 +1,17 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
 import { Color } from '../types';
-import { ROUTES } from '../constants';
 
 type Props = {
   colors: Color[];
   title: string;
+  onPress: () => void;
 };
 
-function ColorSampleList({ colors, title }: Props) {
-  const navigation = useNavigation();
-
+function ColorSampleList({ colors, title, onPress }: Props) {
   return (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.navigate(ROUTES.colorPalette, {
-          paletteName: title,
-          colors: colors,
-        });
-      }}
-    >
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
         <Text style={styles.title}>{title}</Text>
 

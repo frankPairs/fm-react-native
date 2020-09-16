@@ -15,11 +15,7 @@ function ColorList({ data }: Props) {
       data={data}
       renderItem={({ item }) => <ColorBox {...item} />}
       keyExtractor={(_, index) => String(index)}
-      ListHeaderComponent={
-        <Text style={styles.title}>
-          Here are some boxes of different colors
-        </Text>
-      }
+      ListHeaderComponent={<Text style={styles.title}>Main colors</Text>}
     />
   );
 }
