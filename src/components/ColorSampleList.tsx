@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+  Text,
+} from 'react-native';
 
 import { Color } from '../types';
 
@@ -15,14 +21,17 @@ function ColorSampleList({ colors, title, onPress }: Props) {
       <View style={styles.container}>
         <Text style={styles.title}>{title}</Text>
 
-        <View style={styles.colorList}>
-          {colors.slice(0, 5).map((color) => (
+        <FlatList
+          data={colors.slice(0, 5)}
+          horizontal
+          keyExtractor={(item) => item.hexCode}
+          renderItem={({ item: color }) => (
             <View
               key={color.hexCode}
               style={[styles.colorBox, { backgroundColor: color.hexCode }]}
             />
-          ))}
-        </View>
+          )}
+        />
       </View>
     </TouchableOpacity>
   );
