@@ -22,8 +22,8 @@ function ColorSampleList({ colors, title, onPress }: Props) {
         <Text style={styles.title}>{title}</Text>
 
         <FlatList
+          style={styles.colorList}
           data={colors.slice(0, 5)}
-          horizontal
           keyExtractor={(item) => item.hexCode}
           renderItem={({ item: color }) => (
             <View
@@ -50,6 +50,11 @@ const styles = StyleSheet.create({
     width: 30,
     marginRight: 10,
     marginEnd: 0,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.3,
+    shadowRadius: 1,
+    elevation: 2,
   },
   title: {
     fontWeight: 'bold',
