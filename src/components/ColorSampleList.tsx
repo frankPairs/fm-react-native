@@ -11,15 +11,15 @@ import { Color } from '../types';
 
 type Props = {
   colors: Color[];
-  title: string;
+  paletteName: string;
   onPress: () => void;
 };
 
-function ColorSampleList({ colors, title, onPress }: Props) {
+function ColorSampleList({ colors, paletteName, onPress }: Props) {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{paletteName}</Text>
 
         <FlatList
           style={styles.colorList}

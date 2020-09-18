@@ -1,12 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-type Props = {
-  name: string;
-  hexCode: string;
-};
+import { Color } from '../types';
 
-function ColorBox({ name, hexCode }: Props) {
+type Props = Color;
+
+function ColorBox({ colorName, hexCode }: Props) {
   const boxColorStyles = StyleSheet.create({
     container: {
       backgroundColor: hexCode,
@@ -22,7 +21,7 @@ function ColorBox({ name, hexCode }: Props) {
 
   return (
     <View style={[styles.container, boxColorStyles.container]}>
-      <Text style={boxColorStyles.text}>{name}</Text>
+      <Text style={boxColorStyles.text}>{colorName}</Text>
     </View>
   );
 }
