@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, FlatList, Text } from 'react-native';
+import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { ColorSampleList } from '../components';
@@ -52,6 +52,13 @@ function Home() {
             }}
           />
         )}
+        ListHeaderComponent={
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ColorPaletteModal')}
+          >
+            <Text>Launch Modal</Text>
+          </TouchableOpacity>
+        }
       />
     </View>
   );
