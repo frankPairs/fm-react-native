@@ -5,8 +5,9 @@
     "name": "colors",
     "slug": "colors",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "androidNavigationBar": {
+      "visible": "sticky-immersive"
+    }
   }
 }

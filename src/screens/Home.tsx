@@ -7,14 +7,19 @@ import {
   StyleSheet,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { StackScreenProps } from '@react-navigation/stack';
 
 import { ColorSampleList } from '../components';
 import { ROUTES } from '../constants';
 import { useGetPalettes } from '../hooks/effects/network';
+import { RootStackParamList } from '../types';
 
-function Home() {
+type Props = StackScreenProps<RootStackParamList, 'Home'>;
+
+function Home({ route }: Props) {
   const navigation = useNavigation();
   const [getPalettes, { isLoading, data, err }] = useGetPalettes();
+  const newColorPalette = route.params ? route.params.newColorPalette : null;
 
   useEffect(() => {
     getPalettes();
@@ -43,7 +48,7 @@ function Home() {
   return (
     <View>
       <FlatList
-        data={data}
+        data={newColorPalette === null ? data : [newColorPalette, ...data]}
         keyExtractor={(item) => item.paletteName}
         refreshing={isLoading}
         onRefresh={getPalettes}

@@ -11,6 +11,7 @@ type ColorPalette = {
 
 type RootStackParamList = {
   ColorPalette: { paletteName: string; colors: Color[] };
+  Home: { newColorPalette: ColorPalette };
 };
 
 type RequestStatus = {
