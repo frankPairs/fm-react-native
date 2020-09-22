@@ -1,5 +1,11 @@
 import React, { useEffect } from 'react';
-import { View, FlatList, Text, TouchableOpacity } from 'react-native';
+import {
+  View,
+  FlatList,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { ColorSampleList } from '../components';
@@ -56,12 +62,22 @@ function Home() {
           <TouchableOpacity
             onPress={() => navigation.navigate('ColorPaletteModal')}
           >
-            <Text>Launch Modal</Text>
+            <Text style={styles.link}>Add new color palette</Text>
           </TouchableOpacity>
         }
       />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  link: {
+    color: '#00A0B0',
+    fontSize: 22,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
+    margin: 10,
+  },
+});
 
 export { Home };
